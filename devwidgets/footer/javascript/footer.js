@@ -58,7 +58,6 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         var $footer_links_right_template = $("#footer_links_right_template");
         var $footer_langloc_buttons = $('p.footer_langloc>button');
 
-        var $footer_langloc = $("#footer_langloc");
 
         //////////////////////
         // Helper functions //
@@ -180,10 +179,6 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                 if (sakai.config.displayLanguage) {
                     $("#footer_langdoc_lang").show();
                 }
-            }
-
-            if (sakai.config.displayTimezoneAndLanguage) {
-                $footer_langloc.show();
             }
 
             // Set the end year of the copyright notice
