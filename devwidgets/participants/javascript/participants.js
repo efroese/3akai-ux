@@ -208,7 +208,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         // Init functions //
         ////////////////////
 
-        var loadParticipants = function(){
+        var loadParticipants = function(cache){
             // Disable the previous infinite scroll
             if (infinityScroll){
                 infinityScroll.kill();
@@ -217,7 +217,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
             infinityScroll = $participantsListContainer.infinitescroll(function(parameters, callback){
                 sakai.api.Groups.searchMembers(widgetData.participants.groupid, widgetData.query, parameters.items, parameters.page, parameters.sortBy, parameters.sortOrder, function(success, data){
                     callback(true, data);
-                });
+                }, cache);
             }, {
                 "query": widgetData.query,
                 "sortBy": "lastName",
@@ -318,7 +318,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
 
         $(window).bind("usersselected.addpeople.sakai", function(e, _newlyAdded){
             newlyAdded = _newlyAdded;
-            setTimeout(loadParticipants, 1000);
+            setTimeout(function(){loadParticipants(false)}, 1000);
         });
 
         init();
