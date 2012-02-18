@@ -10,6 +10,7 @@
             <li><button class="selected" id="accountpreferences_preferences_tab">__MSG__ACCOUNT_PREFERENCES__</button></li>
             <li><button id="accountpreferences_privacy_tab">__MSG__PRIVACY_SETTINGS__</button></li>
             <li><button id="accountpreferences_password_tab">__MSG__PASSWORD__</button></li>
+            <li><button id="accountpreferences_email_tab">__MSG__EMAIL__</button></li>
         </ul>
     </div>
 
@@ -25,11 +26,18 @@
     <span id="accountpreferences_message_ChangeLang_title" style="display:none;">__MSG__REGIONAL_SETTINGS__.</span>
     <span id="accountpreferences_message_ChangeLang" style="display:none;">__MSG__REGIONAL_SETTINGS_CHANGED__.</span>
     <span id="accountpreferences_error_passSame" style="display:none;">__MSG__NEW_OLD_PASSWORD_EQUAL__</span>
+    <span id="accountpreferences_error_failChangeEmail" style="display:none;">__MSG__CHANGING_EMAIL_FAILED__.</span>
+    <span id="accountpreferences_error_failChangeEmailBody" style="display:none;">__MSG__CHANGING_EMAIL_FAILED_BODY__.</span>
+    <span id="accountpreferences_message_emailChanged" style="display:none;">__MSG__EMAIL_CHANGED__.</span>
+    <span id="accountpreferences_message_emailChangedBody" style="display:none;">__MSG__EMAIL_CHANGED_BODY__.</span>
 
     <!-- Account Preferences -->
     <div class="fl-container-flex">
         <div class="fl-fix fl-centered accountpreferences">
             <!-- CONTENT -->
+            <div class="email" id="accountpreferences_changeEmailContainer" style="display:none;">
+              <!-- will fill in from email-verify -->
+            </div>
             <div class="password" id="accountpreferences_changePassContainer" style="display:none;">
                 <form id="accountpreferences_password_change" class="preferences-form">
                     <h2>__MSG__PASSWORD__:</h2>
@@ -197,7 +205,7 @@
                     <option value="${i.language}_${i.country}">${i.displayName}</option>
                 {/for}
             --></div>
-
+            
             <div class="fl-push"></div>
         </div>
     </div>

@@ -460,6 +460,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                 var groupData = $.extend( true, {}, sakai_global.group.groupData );
                 groupData.roles = $.parseJSON(sakai_global.group.groupData[ "sakai:roles" ] );
                 currentTemplate.roles = sakai.api.Groups.getRoles( groupData, true );
+                currentTemplate.joinRole = groupData["sakai:joinRole"];
             } else if ( !$.isEmptyObject( currentTemplate ) ){
                 currentTemplate.roles = sakai.api.Groups.getRoles(currentTemplate, true);
             } else {
