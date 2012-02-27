@@ -18,7 +18,7 @@
   <version>1.1.4-rsmart-SNAPSHOT</version>
   <name>Sakai 3 UX Loader Wrapper</name>
   <description>Loads the Sakai 3 UI into the JCR</description>
-  <url>http://github.com/rsmart/3akai-ux</url>
+  <url>http://github.com/rSmart/3akai-ux</url>
   <scm>
     <connection>scm:git:git://github.com/rSmart/3akai-ux.git</connection>
     <developerConnection>scm:git:git@github.com:rSmart/3akai-ux.git</developerConnection>
