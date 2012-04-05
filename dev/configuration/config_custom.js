@@ -832,7 +832,7 @@ define(["config/config"], function(config) {
         "remotecontent",
         "inlinecontent",
         "sakai2samigo",
-        "sakai2forum",
+        "sakai2forums",
         "sakai2calendar",
         "googlemaps",
         "comments",
