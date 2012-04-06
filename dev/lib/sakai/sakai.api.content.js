@@ -18,7 +18,8 @@
 define(
     [
         "jquery",
-        "config/config_custom",
+        //"config/config_custom",
+        "config/dynamicconfig",
         "sakai/sakai.api.server",
         "sakai/sakai.api.groups",
         "sakai/sakai.api.util",

@@ -1,4 +1,4 @@
-define(["config/config"], function(config) {
+define(["config/dynamicconfig"], function(config) {
 
     /**
      * rSmart default customizations
