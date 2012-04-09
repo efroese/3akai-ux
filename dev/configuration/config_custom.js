@@ -822,6 +822,10 @@ define(["config/config"], function(config) {
     // -- Sample config for how to extend TinyMCE --
     // config.Editor.plugins += ',paste';
     // config.Editor.buttons.line_two = 'code,pasteword,pastetext';
+    config.Editor.plugins += ',advlink,autolink,contextmenu,directionality,fullscreen,lists,paste,searchreplace,style';
+    config.Editor.buttons.line_one = 'bold,italic,underline,strikethrough,sub,sup,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect,|,forecolor,backcolor';
+    config.Editor.buttons.line_two = 'undo,redo,|,cut,copy,paste,pastetext,pasteword,removeformat,|,bullist,numlist,outdent,indent,|,blockquote,advhr,charmap,|,link,unlink,anchor,|,search,replace,|,visualaid,fullscreen,styleprops,cleanup,code';
+    config.Editor.buttons.line_three = 'tablecontrols,|,ltr,rtl';
 
     /**
      * Customize the widgets that can be placed in sakaidocs
