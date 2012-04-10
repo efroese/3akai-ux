@@ -17,6 +17,7 @@ define(
         $.ajax({
             url: dynamicconfig,
             async: false,
+            dataType: 'json',
             cache: true,
             success: function (data) {
                 config = data;
