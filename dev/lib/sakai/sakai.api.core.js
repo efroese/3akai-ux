@@ -26,7 +26,8 @@ define(
         "sakai/sakai.api.user",
         "sakai/sakai.api.util",
         "sakai/sakai.api.widgets",
-        "config/config_custom",
+        //"config/config_custom",
+        "config/dynamicconfig",
         "../../../var/widgets.json?callback=define"
     ],
     function(sakai_comm,
