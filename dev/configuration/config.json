@@ -1681,5 +1681,7 @@
             "main": "welcome",
             "bottom": "featuredcontent"
         }
-    }
+    },
+
+    "emailVerifyEnabled" : true
 }
