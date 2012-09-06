@@ -126,14 +126,26 @@ require(['jquery', 'sakai/sakai.api.core', '/devwidgets/documentviewer/lib/docum
         };
 
          var renderKalturaPlayer = function(data) {
-            var html5FlashCompatibilityURL = sakai.config.kaltura.serverURL +'/p/'+sakai.config.kaltura.partnerId+'/sp/'+sakai.config.kaltura.partnerId+'00/embedIframeJs/uiconf_id/'+sakai.config.kaltura.playerId+'/partner_id/'+sakai.config.kaltura.partnerId;
+            var html5FlashCompatibilityURL = sakai.config.kaltura.serverURL+'/p/'+sakai.config.kaltura.partnerId+'/sp/'+sakai.config.kaltura.partnerId+'00/embedIframeJs/uiconf_id/'+sakai.config.kaltura.playerId+'/partner_id/'+sakai.config.kaltura.partnerId;
+            var medianode = {};
+            var medianodeUrl = '/p/'+data['_path']+'-medianode.3.json';
+            $.ajax({
+              url: medianodeUrl,
+              dataType: 'json',
+              async: false,
+              success: function(json){ medianode = json; },
+            });
+
+            var replicationStatus = medianode['replicationStatus'][data['_previousVersion']];
+
             $.getScript(html5FlashCompatibilityURL, function() {
-                var kaltura_id = data['kaltura-id'];
-                var url = sakai.config.kaltura.serverURL + '/kwidget/wid/_'+sakai.config.kaltura.partnerId+'?ui_conf_id='+sakai.config.kaltura.playerId;
+                var kalturaId   = replicationStatus['bodyMediaId'];
+                var url          = sakai.config.kaltura.serverURL + '/kwidget/wid/_'+sakai.config.kaltura.partnerId+'?ui_conf_id='+sakai.config.kaltura.playerId;
+                var thumbnailURL = sakai.config.kaltura.serverURL + "/p/" + sakai.config.kaltura.partnerId+'/thumbnail/width/120/height/90/entry_id/'+kalturaId;
                 var so = createSWFObject(url, {}, {});
                 so.addVariable('stretching','uniform');
-                so.addVariable('image', data['kaltura-thumbnail']);
-                so.addVariable('entryId',kaltura_id);
+                so.addVariable('image', thumbnailURL);
+                so.addVariable('entryId', kalturaId);
                 so.write('documentviewer_video_' + tuid);
             });
         };
